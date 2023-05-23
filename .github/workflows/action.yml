@@ -1,0 +1,18 @@
+name: Sync Github Prs to Notion
+
+on:
+  issues:
+    types: [opened, edited, deleted, transferred, pinned, unpinned, closed, reopened, assigned, unassigned, labeled, unlabeled, locked, unlocked, milestoned, demilestoned]
+  pull_request:
+    types: [assigned, unassigned, labeled, unlabeled, opened, edited, closed, reopened, synchronize, converted_to_draft, ready_for_review, locked, unlocked, review_requested, review_request_removed, auto_merge_enabled, auto_merge_disabled]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sync Github PRs to Notion
+      uses: sivashanmukh/github-notion-pr-sync@1.0.0
+      with:
+        notionKey: secret_yNWTT4Qm262CWUVLoOc3wsgZRTDVlyRmiIyCd1MEtrv
+        notionDatabaseId: cc406b1cfbdc42f08c785ff5922b2e96
+        githubKey: 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
